@@ -61,6 +61,28 @@ n_{12} \\ n_{23} \\ n_{34}
 
 \centerline{$ \mathbf{\underline{r}} = \mathbf{\underline{h}(\mathbf{\underline{x}})} + \mathbf{\underline{n}} $}
 \centerline{$ \mathbf{\underline{r}} \sim \mathcal{N}(\mathbf{\underline{h}(\mathbf{\underline{x}})}, \mathbf{\Sigma_{n}})$}
+where $\mathbf{\Sigma_{n}}$ is the noise covariance matrix, given by,
+\[
+\mathbf{\underline{n}} = 
+\begin{bmatrix}
+n_{12} \\ n_{23} \\ n_{34}
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & -1 & 0 & 0 \\ 0 & 1 & -1 & 0 \\ 0 & 0& 1 & -1 & 
+\end{bmatrix}
+\begin{bmatrix}
+w_{1} \\ w_{2} \\ w_{3} \\ w_{4}
+\end{bmatrix}
+\]
+
+\begin{align*}
+\mathbf{\underline{n}} &= \mathbf{A}\mathbf{\underline{w}}
+\\ \mathbf{\Sigma_{n}} &= E[\mathbf{\underline{n}}\mathbf{\underline{n}}^{T}]
+\\ &=  E[\mathbf{A}\mathbf{\underline{w}}\mathbf{\underline{w}}^{T}\mathbf{A}]
+\\ &= \mathbf{A}E[\mathbf{\underline{w}}\mathbf{\underline{w}}^{T}]\mathbf{A}^{T}
+\\ &= \mathbf{A}\Sigma_{w}\mathbf{A}^{T}
+\end{align*}
 
 With this we can write the likelihood and log-likelihood functions as,
 \begin{align*}
@@ -108,10 +130,10 @@ where,
 \\ &= \frac{x- x_{i}}{d_{i}} - \frac{x- x_{i+1}}{d_{i+1}}
 \end{align*}
 
-
+\newpage
 Given an $\mathbf{\underline{x}}$, we can find the elements of Fischer Information Matrix and invert it to get the CRLB.
 \\ \centerline{$ \mathbf{C}_{\mathbf{\hat{\underline{x}}}} \geq [\mathbf{I^{-1}(\mathbf{\underline{x}})}] $}
-\\ \centerline{$ Var[{\hat{x}}] \geq [\mathbf{I^{-1}(\mathbf{\underline{x}})}]^{-1}_{11} $}
+\\ \centerline{$ Var[{\hat{x}}] \geq [\mathbf{I^{-1}(\mathbf{\underline{x}})}]_{11} $}
 \\ \centerline{$ Var[{\hat{y}}] \geq [\mathbf{I^{-1}(\mathbf{\underline{x}})}]_{22} $}
 
 
@@ -132,7 +154,24 @@ P(\mathbf{\underline{r}}; \mathbf{\underline{x}}) &= \frac{1}{(2\pi)^{3/2}|\sum_
 \\ &= \argmin_{\mathbf{\underline{x}}} J(\mathbf{\underline{x})}
 \\ \intertext{We can proceed with this minimization as an optimization problem, using any of the available descent algorithms.We will use a simple iterative gradient descent algorithm with a fixed step size $\alpha$ such that 0 $<$ $\alpha$ $<$ $\frac{2}{\lambda_{max}}$, where $\lambda_{max}$ is the largest eigenvalue of $ \mathbf{\Sigma_{n}^{-1}} $ (for which the gradient descent theoretically converges if objective function is Lipschitz).}
 \mathbf{\hat{\underline{x}}}^{(k+1)} &= \mathbf{\hat{\underline{x}}}^{(k)} - \alpha \nabla J(\mathbf{\underline{x}})
-\\ &= \mathbf{\hat{\underline{x}}}^{(k)} - \alpha \nabla \mathbf{h(\mathbf{\underline{x}})}^{T}\mathbf{\Sigma_{n}^{-1}}(\mathbf{\underline{r}}-\mathbf{\underline{h}(\mathbf{\underline{x}})})
+\\ &= \mathbf{\hat{\underline{x}}}^{(k)} + \alpha \nabla \mathbf{h(\mathbf{\underline{x}})}^{T}\mathbf{\Sigma_{n}^{-1}}(\mathbf{\underline{r}}-\mathbf{\underline{h}(\mathbf{\underline{x}})})
+\end{align*}
+
+where,
+\[
+\nabla \mathbf{\underline{h}(\mathbf{\underline{x}})} =
+\frac{\partial \mathbf{\underline{h}(\mathbf{\underline{x}})}}{\partial y} 
+= 
+\begin{bmatrix}
+\frac{\partial h_{1}(\mathbf{\underline{x}})}{\partial x} & \frac{\partial h_{2}(\mathbf{\underline{x}})}{\partial x} & \frac{\partial h_{3}(\mathbf{\underline{x}})}{\partial x}
+\end{bmatrix}
+\]
+
+\begin{align*}
+\frac{\partial h_{i}(\mathbf{\underline{x}})}{\partial x} &= \frac{\partial}{\partial x} (d_{i} - d_{i+1})
+\\ &= \frac{\partial}{\partial x}(||\mathbf{x}-\mathbf{x}_{i}||_{2} - ||\mathbf{x}-\mathbf{x}_{i+1}||_{2} )
+\\ &= \frac{x- x_{i}}{||\mathbf{x}-\mathbf{x}_{i}||_{2}} - \frac{x- x_{i+1}}{||\mathbf{x}-\mathbf{x}_{i+1}||_{2}}
+\\ &= \frac{x- x_{i}}{d_{i}} - \frac{x- x_{i+1}}{d_{i+1}}
 \end{align*}
 
 
