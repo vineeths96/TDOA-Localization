@@ -10,6 +10,9 @@
 \usepackage[colorlinks=true, urlcolor=blue,  linkcolor=blue, citecolor=blue]{hyperref}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{rotating}
+\usepackage{graphicx}
+\usepackage{minted}
+
 \allowdisplaybreaks
 \DeclareMathOperator*{\argmin}{\arg\min} 
 \DeclareMathOperator*{\argmax}{\arg\max} 
@@ -374,6 +377,75 @@ Hence the best linear unbiased estimator (BLUE estimator),
 \\ \centerline{$\hat{\mathbf{\underline{\theta}}} = (\mathbf{H}^{T}\mathbf{C}^{-1}\mathbf{H})^{-1}\mathbf{H}^{T}\mathbf{C}^{-1} \mathbf{\underline{r'}}$}
 
 
+
+
+
+
+\newpage
+\problem{B: Problem 1 Estimated location of the	Transvahan using MLE estimator}
+
+\vspace{6em}
+
+\begin{figure}[h]
+	\includegraphics[width=\linewidth]{../results/MLE_map_loc.png}
+	\caption{Estimated location of Transvahan using MLE}
+	\label{fig:MLE}
+\end{figure}
+
+
+
+
+
+\newpage
+\problem{B: Problem 2 Estimated location of the	Transvahan using BLUE estimator}
+
+\vspace{6em}
+
+\begin{figure}[h]
+	\includegraphics[width=\linewidth]{../results/BLUE_map_loc.png}
+	\caption{Estimated location of Transvahan using MLE}
+	\label{fig:BLUE}
+\end{figure}
+
+
+
+
+\newpage
+\problem{B: Problem 3 Comparison of CRLB and mean squared error of MLE \& BLUE estimators}
+
+\vspace{6em}
+
+\begin{figure}[h]
+	\includegraphics[width=\linewidth]{../results/MSE.png}
+	\caption{Estimated location of Transvahan using MLE}
+	\label{fig:MSE}
+\end{figure}
+
+
+
+
+
+\newpage
+\problem{C: Appendices (Python codes)}
+\solution The entire program is written in four python files - main.py, CRLB.py, MLE.py and BLUE.py. The codes are provided below and are also available at \url{https://github.com/vineeths96/TDOA-Localization} GitHub repository. (Repository access is private as of now. Access can me made available, if necessary).
+
+\subproblem{main.py}
+\inputminted[frame=lines, framesep=2mm, baselinestretch=1.2, fontsize=\footnotesize, linenos]{python}{../main.py}
+
+
+\newpage
+\subproblem{CRLB.py}
+\inputminted[frame=lines, framesep=2mm, baselinestretch=1.2, fontsize=\footnotesize, linenos]{python}{../CRLB.py}
+
+
+\newpage
+\subproblem{MLE.py}
+\inputminted[frame=lines, framesep=2mm, baselinestretch=1.2, fontsize=\footnotesize, linenos]{python}{../MLE.py}
+
+
+\newpage
+\subproblem{BLUE.py}
+\inputminted[frame=lines, framesep=2mm, baselinestretch=1.2, fontsize=\footnotesize, linenos]{python}{../BLUE.py}
 
 
 \end{document} 

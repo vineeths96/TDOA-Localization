@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.1.20)  1 MAR 2020 19:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.1.20)  2 MAR 2020 09:52
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **main.tex
 (./main.tex
@@ -649,46 +649,168 @@ Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
 \rot@float@box=\box39
 \rot@mess@toks=\toks37
 )
+(/usr/share/texlive/texmf-dist/tex/latex/minted/minted.sty
+Package: minted 2017/07/19 v2.5 Yet another Pygments shim for LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/fvextra/fvextra.sty
+Package: fvextra 2017/07/08 v1.3.1 fvextra - extensions and patches for fancyvr
+b
+
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count149
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2008/02/07
+
+Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
+<2008/02/07> (tvz)
+\FV@CodeLineNo=\count150
+\FV@InFile=\read3
+\FV@TabBox=\box40
+\c@FancyVerbLine=\count151
+\FV@StepNumber=\count152
+\FV@OutFile=\write4
+)
+(/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+)
+(/usr/share/texlive/texmf-dist/tex/latex/lineno/lineno.sty
+Package: lineno 2005/11/02 line numbers on paragraphs v4.41
+\linenopenalty=\count153
+\output=\toks38
+\linenoprevgraf=\count154
+\linenumbersep=\dimen188
+\linenumberwidth=\dimen189
+\c@linenumber=\count155
+\c@pagewiselinenumber=\count156
+\c@LN@truepage=\count157
+\c@internallinenumber=\count158
+\c@internallinenumbers=\count159
+\quotelinenumbersep=\dimen190
+\bframerule=\dimen191
+\bframesep=\dimen192
+\bframebox=\box41
+LaTeX Info: Redefining \\ on input line 3056.
+)
+\c@FV@TrueTabGroupLevel=\count160
+\c@FV@TrueTabCounter=\count161
+\FV@TabBox@Group=\box42
+\FV@TmpLength=\skip61
+\c@FV@HighlightLinesStart=\count162
+\c@FV@HighlightLinesStop=\count163
+\FV@LoopCount=\count164
+\FV@NCharsBox=\box43
+\FV@BreakIndent=\dimen193
+\FV@BreakIndentNChars=\count165
+\FV@BreakSymbolSepLeft=\dimen194
+\FV@BreakSymbolSepLeftNChars=\count166
+\FV@BreakSymbolSepRight=\dimen195
+\FV@BreakSymbolSepRightNChars=\count167
+\FV@BreakSymbolIndentLeft=\dimen196
+\FV@BreakSymbolIndentLeftNChars=\count168
+\FV@BreakSymbolIndentRight=\dimen197
+\FV@BreakSymbolIndentRightNChars=\count169
+\c@FancyVerbLineBreakLast=\count170
+\FV@LineBox=\box44
+\FV@LineIndentBox=\box45
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2016/06/07 v0.02a unified shell escape interface for LaTeX
+Package shellesc Info: Unrestricted shell escape enabled on input line 67.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/ifplatform/ifplatform.sty
+Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/catchfile.sty
+Package: catchfile 2016/05/16 v1.7 Catch the contents of a file (HO)
+)
+runsystem(uname -s > "main.w18")...executed.
+
+ (./main.w18)
+runsystem(rm -- "main.w18")...executed.
+
+) (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex
+\@xs@message=\write5
+\integerpart=\count171
+\decimalpart=\count172
+)
+Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip62
+\fb@frw=\dimen198
+\fb@frh=\dimen199
+Normal \dimen register pool exhausted, switching to extended pool.
+\FrameRule=\dimen256
+\FrameSep=\dimen257
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count173
+\float@exts=\toks39
+\float@box=\box46
+\@float@everytoks=\toks40
+\@floatcapt=\box47
+)
+\minted@appexistsfile=\read4
+\minted@bgbox=\box48
+\minted@code=\write6
+\c@minted@FancyVerbLineTemp=\count174
+\c@minted@pygmentizecounter=\count175
+\@float@every@listing=\toks41
+\c@listing=\count176
+)
+runsystem(mkdir -p _minted-main)...executed.
+
+
 (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2016/04/27 v1.618033 publication quality tables
-\heavyrulewidth=\dimen188
-\lightrulewidth=\dimen189
-\cmidrulewidth=\dimen190
-\belowrulesep=\dimen191
-\belowbottomsep=\dimen192
-\aboverulesep=\dimen193
-\abovetopsep=\dimen194
-\cmidrulesep=\dimen195
-\cmidrulekern=\dimen196
-\defaultaddspace=\dimen197
-\@cmidla=\count149
-\@cmidlb=\count150
-\@aboverulesep=\dimen198
-\@belowrulesep=\dimen199
-\@thisruleclass=\count151
-\@lastruleclass=\count152
-Normal \dimen register pool exhausted, switching to extended pool.
-\@thisrulewidth=\dimen256
+\heavyrulewidth=\dimen258
+\lightrulewidth=\dimen259
+\cmidrulewidth=\dimen260
+\belowrulesep=\dimen261
+\belowbottomsep=\dimen262
+\aboverulesep=\dimen263
+\abovetopsep=\dimen264
+\cmidrulesep=\dimen265
+\cmidrulekern=\dimen266
+\defaultaddspace=\dimen267
+\@cmidla=\count177
+\@cmidlb=\count178
+\@aboverulesep=\dimen268
+\@belowrulesep=\dimen269
+\@thisruleclass=\count179
+\@lastruleclass=\count180
+\@thisrulewidth=\dimen270
 ) (./macros.tex
-\c@thm=\count153
+\c@thm=\count181
 )
+runsystem(which pygmentize && touch main.aex)...executed.
+
+runsystem(rm main.aex)...executed.
+
+
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -726,17 +848,17 @@ LaTeX Font Info:    ... okay on input line 30.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count154
-\scratchdimen=\dimen257
-\scratchbox=\box40
-\nofMPsegments=\count155
-\nofMParguments=\count156
-\everyMPshowfont=\toks38
-\MPscratchCnt=\count157
-\MPscratchDim=\dimen258
-\MPnumerator=\count158
-\makeMPintoPDFobject=\count159
-\everyMPtoPDFconversion=\toks39
+\scratchcounter=\count182
+\scratchdimen=\dimen271
+\scratchbox=\box49
+\nofMPsegments=\count183
+\nofMParguments=\count184
+\everyMPshowfont=\toks42
+\MPscratchCnt=\count185
+\MPscratchDim=\dimen272
+\MPnumerator=\count186
+\makeMPintoPDFobject=\count187
+\everyMPtoPDFconversion=\toks43
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -755,13 +877,14 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box41
-Package hyperref Info: Link coloring ON on input line 30.
+\AtBeginShipoutBox=\box50
+Package hyperref Info: Link coloring ON on input line 33.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -769,99 +892,170 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count160
+\c@section@level=\count188
 )
-LaTeX Info: Redefining \ref on input line 30.
-LaTeX Info: Redefining \pageref on input line 30.
-LaTeX Info: Redefining \nameref on input line 30.
+LaTeX Info: Redefining \ref on input line 33.
+LaTeX Info: Redefining \pageref on input line 33.
+LaTeX Info: Redefining \nameref on input line 33.
 
 (./main.out) (./main.out)
-\@outlinefile=\write4
-\openout4 = `main.out'.
+\@outlinefile=\write7
+\openout7 = `main.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 39.
+LaTeX Font Info:    Try loading font information for U+msa on input line 42.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 39.
+LaTeX Font Info:    Try loading font information for U+msb on input line 42.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 37--41
+Underfull \hbox (badness 10000) in paragraph at lines 40--44
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--41
+Underfull \hbox (badness 10000) in paragraph at lines 40--44
 
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (6.54025pt too wide) detected at line 98
+Overfull \hbox (6.54025pt too wide) detected at line 101
 []
  []
 
 [2] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 145--148
+Underfull \hbox (badness 10000) in paragraph at lines 148--151
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--148
+Underfull \hbox (badness 10000) in paragraph at lines 148--151
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 184--189
+Underfull \hbox (badness 10000) in paragraph at lines 187--192
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--189
+Underfull \hbox (badness 10000) in paragraph at lines 187--192
 
  []
 
 [5] [6] [7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 379.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 379.
+Underfull \hbox (badness 10000) in paragraph at lines 386--388
+
+ []
+
+<../results/MLE_map_loc.png, id=53, 462.528pt x 346.896pt>
+File: ../results/MLE_map_loc.png Graphic file (type png)
+<use ../results/MLE_map_loc.png>
+Package pdftex.def Info: ../results/MLE_map_loc.png  used on input line 390.
+(pdftex.def)             Requested size: 483.69687pt x 362.79062pt.
+[8 <../results/MLE_map_loc.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 401--403
+
+ []
+
+<../results/BLUE_map_loc.png, id=61, 462.528pt x 346.896pt>
+File: ../results/BLUE_map_loc.png Graphic file (type png)
+<use ../results/BLUE_map_loc.png>
+Package pdftex.def Info: ../results/BLUE_map_loc.png  used on input line 405.
+(pdftex.def)             Requested size: 483.69687pt x 362.79062pt.
+[9 <../results/BLUE_map_loc.png>]
+Overfull \hbox (9.93935pt too wide) in paragraph at lines 415--417
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 415--417
+
+ []
+
+<../results/MSE.png, id=68, 462.528pt x 346.896pt>
+File: ../results/MSE.png Graphic file (type png)
+<use ../results/MSE.png>
+Package pdftex.def Info: ../results/MSE.png  used on input line 419.
+(pdftex.def)             Requested size: 483.69687pt x 362.79062pt.
+[10 <../results/MSE.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 430--431
+
+ []
+
+(./_minted-main/default-pyg-prefix.pygstyle) (./_minted-main/default.pygstyle)
+(./_minted-main/C7960F83E622AA426F5E6159BA89BF8EAEB9F9A3C71A167CD847EACA4EB15A4
+4.pygtex
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2.
+ [11]) [12]
+(./_minted-main/4A0DE958DA75A4F084585DC6194C41DEA1AB9A5F2C8B1C4E61F4373FA444EFF
+9.pygtex) [13]
+runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
+minted-main/A1C11A748016279FC69A40926134C24B8DC9D10E39331412B20544816888D296.py
+gtex ../MLE.py)...executed.
+
+
+(./_minted-main/A1C11A748016279FC69A40926134C24B8DC9D10E39331412B20544816888D29
+6.pygtex) [14]
+runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
+minted-main/AF7459A4B5670D1B7722DE670DEAFC548818DC9249A76074377AE767ACAF4DA4.py
+gtex ../BLUE.py)...executed.
+
+
+(./_minted-main/AF7459A4B5670D1B7722DE670DEAFC548818DC9249A76074377AE767ACAF4DA
+4.pygtex)
+runsystem(rm _minted-main/B5DAFE28A5E6D7726CC78F28009953FD8DC9D10E39331412B2054
+4816888D296.pygtex)...executed.
+
+runsystem(rm _minted-main/EF4EFD6CBFE24D855522ED21E704BB048818DC9249A76074377AE
+767ACAF4DA4.pygtex)...executed.
+
+ [15]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 451.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 451.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 379.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 379.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 451.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 451.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 379.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 451.
  ) 
 Here is how much of TeX's memory you used:
- 18791 strings out of 494923
- 352101 string characters out of 6180742
- 429667 words of memory out of 5000000
- 21773 multiletter control sequences out of 15000+600000
- 7930 words of font info for 30 fonts, out of 8000000 for 9000
+ 21709 strings out of 494923
+ 412132 string characters out of 6180742
+ 533980 words of memory out of 5000000
+ 24594 multiletter control sequences out of 15000+600000
+ 8733 words of font info for 34 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 55i,13n,54p,619b,337s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,13n,77p,935b,637s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (7 pages, 185162 bytes).
+st/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on main.pdf (15 pages, 1515243 bytes).
 PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
- 82 compressed objects within 1 object stream
- 8 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 167 PDF objects out of 1000 (max. 8388607)
+ 123 compressed objects within 2 object streams
+ 19 named destinations out of 1000 (max. 500000)
+ 28 words of extra memory for PDF output out of 10000 (max. 10000000)
 

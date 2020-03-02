@@ -7,7 +7,8 @@ def BLUE_TDOA(noisy_distances, anchor_location, sigma2):
     H = np.zeros([6, 5])
     gamma_vec = np.zeros(6)
 
-    C = np.array([[4, 1, 1, 1, 1, 0], [1, 4, 1, 1, 0, 1], [1, 1, 4, 0, 1, 1], [1, 1, 0, 4, 1, 1], [1, 0, 1, 1, 4, 1], [0, 1, 1, 1, 1, 4]])
+    C = np.array([[4, 1, 1, 1, 1, 0], [1, 4, 1, 1, 0, 1], [1, 1, 4, 0, 1, 1], [1, 1, 0, 4, 1, 1],
+                  [1, 0, 1, 1, 4, 1], [0, 1, 1, 1, 1, 4]])
     C_inverse = np.linalg.inv(C)
 
     num_anchors = anchor_location.shape[1]

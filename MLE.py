@@ -28,7 +28,7 @@ def MLE_TDOA(noisy_distances, anchor_location, x_0):
 
         for j in range(num_anchors - 1):
             for k in range(DIMENSIONS):
-                delH[k, j] = ((x[k, iter] - anchor_location[k, j]) / d[j]) - ((x[k, iter] - anchor_location[k, j + 1]) / d[j + 1])
+                delH[k, j] = ((x[k, iter]-anchor_location[k, j])/d[j]) - ((x[k, iter]-anchor_location[k, j+1])/d[j + 1])
 
         x[:, iter + 1] = x[:, iter] + ALPHA * delH @ C_inverse @ (r - h)
 
