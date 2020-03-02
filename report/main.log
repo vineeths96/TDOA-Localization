@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.1.20)  2 MAR 2020 09:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.1.20)  2 MAR 2020 13:15
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -996,27 +996,10 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
  [11]) [12]
 (./_minted-main/4A0DE958DA75A4F084585DC6194C41DEA1AB9A5F2C8B1C4E61F4373FA444EFF
 9.pygtex) [13]
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-main/A1C11A748016279FC69A40926134C24B8DC9D10E39331412B20544816888D296.py
-gtex ../MLE.py)...executed.
-
-
 (./_minted-main/A1C11A748016279FC69A40926134C24B8DC9D10E39331412B20544816888D29
 6.pygtex) [14]
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-main/AF7459A4B5670D1B7722DE670DEAFC548818DC9249A76074377AE767ACAF4DA4.py
-gtex ../BLUE.py)...executed.
-
-
 (./_minted-main/AF7459A4B5670D1B7722DE670DEAFC548818DC9249A76074377AE767ACAF4DA
-4.pygtex)
-runsystem(rm _minted-main/B5DAFE28A5E6D7726CC78F28009953FD8DC9D10E39331412B2054
-4816888D296.pygtex)...executed.
-
-runsystem(rm _minted-main/EF4EFD6CBFE24D855522ED21E704BB048818DC9249A76074377AE
-767ACAF4DA4.pygtex)...executed.
-
- [15]
+4.pygtex) [15]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 451.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 451.
  (./main.aux)
@@ -1027,9 +1010,9 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 451.
  ) 
 Here is how much of TeX's memory you used:
- 21709 strings out of 494923
- 412132 string characters out of 6180742
- 533980 words of memory out of 5000000
+ 21707 strings out of 494923
+ 412004 string characters out of 6180742
+ 534025 words of memory out of 5000000
  24594 multiletter control sequences out of 15000+600000
  8733 words of font info for 34 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -1052,7 +1035,7 @@ ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on main.pdf (15 pages, 1515243 bytes).
+Output written on main.pdf (15 pages, 1515540 bytes).
 PDF statistics:
  167 PDF objects out of 1000 (max. 8388607)
  123 compressed objects within 2 object streams
