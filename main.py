@@ -9,6 +9,15 @@ from CRLB import CRLB
 
 
 def MSE_MLE(noisy_distances, anchor_location, x_0, target_location):
+    """
+    Calculates the Mean Squared Error of MLE estimate
+    :param noisy_distances: Noisy measurements
+    :param anchor_location: Anchor locations
+    :param x_0: Initial estimate
+    :param target_location: Target location
+    :return: MSE over 1000 realizations
+    """
+
     (xdim, ydim, zdim) = noisy_distances.shape
     mse = np.zeros(zdim)
 
@@ -25,6 +34,15 @@ def MSE_MLE(noisy_distances, anchor_location, x_0, target_location):
 
 
 def MSE_BLUE(noisy_distances, anchor_location, sigma2, target_location):
+    """
+    Calculates the Mean Squared Error of BLUE estimate
+    :param noisy_distances: Noisy measurements
+    :param anchor_location: Anchor locations
+    :param sigma2: Variance list
+    :param target_location: Target location
+    :return: MSE over 1000 realizations
+    """
+
     (xdim, ydim, zdim) = noisy_distances.shape
     mse = np.zeros(zdim)
 
@@ -41,10 +59,7 @@ def MSE_BLUE(noisy_distances, anchor_location, sigma2, target_location):
 
 
 def main():
-    try:
-        os.makedirs('./results')
-    except:
-        pass
+    os.makedirs('./results', exist_ok=True)
 
     TDOA_data = scipy.io.loadmat('./data/TDOA_data.mat')
     anchor_location = TDOA_data['anchor_location']
@@ -82,6 +97,7 @@ def main():
     CRLB_value = CRLB(target_location,anchor_location,sigma2)
     filename = './results/MSE.png'
 
+    # Plot and save the results
     plt.figure()
     plt.plot(sigma2, MSE_MLE_value, color='red', label='MLE')
     plt.plot(sigma2, MSE_BLUE_value, color='blue', label='BLUE')
@@ -92,6 +108,6 @@ def main():
     plt.legend()
     plt.savefig(filename, dpi=300)
 
-
+    
 if __name__ == '__main__':
     main()

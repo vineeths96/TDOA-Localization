@@ -1,0 +1,99 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{os}
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{scipy.io}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib.pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
+
+\PYG{k+kn}{from} \PYG{n+nn}{MLE} \PYG{k+kn}{import} \PYG{n}{MLE\PYGZus{}TDOA}
+\PYG{k+kn}{from} \PYG{n+nn}{BLUE} \PYG{k+kn}{import} \PYG{n}{BLUE\PYGZus{}TDOA}
+\PYG{k+kn}{from} \PYG{n+nn}{CRLB} \PYG{k+kn}{import} \PYG{n}{CRLB}
+
+
+\PYG{k}{def} \PYG{n+nf}{MSE\PYGZus{}MLE}\PYG{p}{(}\PYG{n}{noisy\PYGZus{}distances}\PYG{p}{,} \PYG{n}{anchor\PYGZus{}location}\PYG{p}{,} \PYG{n}{x\PYGZus{}0}\PYG{p}{,} \PYG{n}{target\PYGZus{}location}\PYG{p}{):}
+    \PYG{p}{(}\PYG{n}{xdim}\PYG{p}{,} \PYG{n}{ydim}\PYG{p}{,} \PYG{n}{zdim}\PYG{p}{)} \PYG{o}{=} \PYG{n}{noisy\PYGZus{}distances}\PYG{o}{.}\PYG{n}{shape}
+    \PYG{n}{mse} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{zdim}\PYG{p}{)}
+
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{zdim}\PYG{p}{):}
+        \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{ydim}\PYG{p}{):}
+            \PYG{n}{x\PYGZus{}estimate} \PYG{o}{=} \PYG{n}{MLE\PYGZus{}TDOA}\PYG{p}{(}\PYG{n}{noisy\PYGZus{}distances}\PYG{p}{[:,} \PYG{n}{j}\PYG{p}{,} \PYG{n}{i}\PYG{p}{],} \PYG{n}{anchor\PYGZus{}location}\PYG{p}{,} \PYG{n}{x\PYGZus{}0}\PYG{p}{)}
+            \PYG{n}{u} \PYG{o}{=} \PYG{n}{x\PYGZus{}estimate} \PYG{o}{\PYGZhy{}} \PYG{n}{target\PYGZus{}location}
+            \PYG{n}{mse\PYGZus{}y} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{norm}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)} \PYG{o}{**} \PYG{l+m+mi}{2}
+            \PYG{n}{mse}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{mse}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+} \PYG{n}{mse\PYGZus{}y}
+
+    \PYG{n}{mse} \PYG{o}{=} \PYG{n}{mse} \PYG{o}{/} \PYG{n}{ydim}
+
+    \PYG{k}{return} \PYG{n}{mse}
+
+
+\PYG{k}{def} \PYG{n+nf}{MSE\PYGZus{}BLUE}\PYG{p}{(}\PYG{n}{noisy\PYGZus{}distances}\PYG{p}{,} \PYG{n}{anchor\PYGZus{}location}\PYG{p}{,} \PYG{n}{sigma2}\PYG{p}{,} \PYG{n}{target\PYGZus{}location}\PYG{p}{):}
+    \PYG{p}{(}\PYG{n}{xdim}\PYG{p}{,} \PYG{n}{ydim}\PYG{p}{,} \PYG{n}{zdim}\PYG{p}{)} \PYG{o}{=} \PYG{n}{noisy\PYGZus{}distances}\PYG{o}{.}\PYG{n}{shape}
+    \PYG{n}{mse} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{zdim}\PYG{p}{)}
+
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{zdim}\PYG{p}{):}
+        \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{ydim}\PYG{p}{):}
+            \PYG{n}{x\PYGZus{}estimate} \PYG{o}{=} \PYG{n}{BLUE\PYGZus{}TDOA}\PYG{p}{(}\PYG{n}{noisy\PYGZus{}distances}\PYG{p}{[:,} \PYG{n}{j}\PYG{p}{,} \PYG{n}{i}\PYG{p}{],} \PYG{n}{anchor\PYGZus{}location}\PYG{p}{,} \PYG{n}{sigma2}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+            \PYG{n}{u} \PYG{o}{=} \PYG{n}{x\PYGZus{}estimate} \PYG{o}{\PYGZhy{}} \PYG{n}{target\PYGZus{}location}
+            \PYG{n}{mse\PYGZus{}y} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{norm}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)} \PYG{o}{**} \PYG{l+m+mi}{2}
+            \PYG{n}{mse}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{mse}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+} \PYG{n}{mse\PYGZus{}y}
+
+    \PYG{n}{mse} \PYG{o}{=} \PYG{n}{mse} \PYG{o}{/} \PYG{n}{ydim}
+
+    \PYG{k}{return} \PYG{n}{mse}
+
+
+\PYG{k}{def} \PYG{n+nf}{main}\PYG{p}{():}
+    \PYG{k}{try}\PYG{p}{:}
+        \PYG{n}{os}\PYG{o}{.}\PYG{n}{makedirs}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}./results\PYGZsq{}}\PYG{p}{)}
+    \PYG{k}{except}\PYG{p}{:}
+        \PYG{k}{pass}
+
+    \PYG{n}{TDOA\PYGZus{}data} \PYG{o}{=} \PYG{n}{scipy}\PYG{o}{.}\PYG{n}{io}\PYG{o}{.}\PYG{n}{loadmat}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}./data/TDOA\PYGZus{}data.mat\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{anchor\PYGZus{}location} \PYG{o}{=} \PYG{n}{TDOA\PYGZus{}data}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}anchor\PYGZus{}location\PYGZsq{}}\PYG{p}{]}
+    \PYG{n}{anchor\PYGZus{}location} \PYG{o}{=} \PYG{n}{anchor\PYGZus{}location}\PYG{o}{.}\PYG{n}{astype}\PYG{p}{(}\PYG{n+nb}{int}\PYG{p}{)}
+    \PYG{n}{noisy\PYGZus{}distances} \PYG{o}{=} \PYG{n}{TDOA\PYGZus{}data}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}noisy\PYGZus{}distances\PYGZsq{}}\PYG{p}{]}
+    \PYG{n}{target\PYGZus{}location} \PYG{o}{=} \PYG{n}{TDOA\PYGZus{}data}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}target\PYGZus{}location\PYGZsq{}}\PYG{p}{]}
+    \PYG{n}{target\PYGZus{}location} \PYG{o}{=} \PYG{n}{target\PYGZus{}location}\PYG{o}{.}\PYG{n}{astype}\PYG{p}{(}\PYG{n+nb}{float}\PYG{p}{)}
+    \PYG{n}{target\PYGZus{}location} \PYG{o}{=} \PYG{p}{[}\PYG{n}{target\PYGZus{}location}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{target\PYGZus{}location}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]]}
+    \PYG{n}{sigma2} \PYG{o}{=} \PYG{n}{TDOA\PYGZus{}data}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}sigma2\PYGZsq{}}\PYG{p}{]}
+
+    \PYG{c+c1}{\PYGZsh{} Problem 1}
+    \PYG{n}{x\PYGZus{}0} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{]}
+    \PYG{n}{x} \PYG{o}{=} \PYG{n}{MLE\PYGZus{}TDOA}\PYG{p}{(}\PYG{n}{noisy\PYGZus{}distances}\PYG{p}{[:,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{anchor\PYGZus{}location}\PYG{p}{,} \PYG{n}{x\PYGZus{}0}\PYG{p}{)}
+    \PYG{n+nb}{map} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{imread}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}./data/mapimage.jpeg\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{filename} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}./results/MLE\PYGZus{}map\PYGZus{}loc.png\PYGZsq{}}
+
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{()}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{imshow}\PYG{p}{(}\PYG{n+nb}{map}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{x}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{x}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{l+s+s1}{\PYGZsq{}+\PYGZsq{}}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}red\PYGZsq{}}\PYG{p}{,} \PYG{n}{markersize}\PYG{o}{=}\PYG{l+m+mi}{12}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{savefig}\PYG{p}{(}\PYG{n}{filename}\PYG{p}{,} \PYG{n}{dpi}\PYG{o}{=}\PYG{l+m+mi}{300}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Problem 2}
+    \PYG{n}{x} \PYG{o}{=} \PYG{n}{BLUE\PYGZus{}TDOA}\PYG{p}{(}\PYG{n}{noisy\PYGZus{}distances}\PYG{p}{[:,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{anchor\PYGZus{}location}\PYG{p}{,} \PYG{n}{sigma2}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}
+    \PYG{n+nb}{map} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{imread}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}./data/mapimage.jpeg\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{filename} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}./results/BLUE\PYGZus{}map\PYGZus{}loc.png\PYGZsq{}}
+
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{()}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{imshow}\PYG{p}{(}\PYG{n+nb}{map}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{x}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{x}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{l+s+s1}{\PYGZsq{}+\PYGZsq{}}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}green\PYGZsq{}}\PYG{p}{,} \PYG{n}{markersize}\PYG{o}{=}\PYG{l+m+mi}{12}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{savefig}\PYG{p}{(}\PYG{n}{filename}\PYG{p}{,} \PYG{n}{dpi}\PYG{o}{=}\PYG{l+m+mi}{300}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Problem 3}
+    \PYG{n}{MSE\PYGZus{}MLE\PYGZus{}value} \PYG{o}{=} \PYG{n}{MSE\PYGZus{}MLE}\PYG{p}{(}\PYG{n}{noisy\PYGZus{}distances}\PYG{p}{,} \PYG{n}{anchor\PYGZus{}location}\PYG{p}{,} \PYG{n}{x\PYGZus{}0}\PYG{p}{,} \PYG{n}{target\PYGZus{}location}\PYG{p}{)}
+    \PYG{n}{MSE\PYGZus{}BLUE\PYGZus{}value} \PYG{o}{=} \PYG{n}{MSE\PYGZus{}BLUE}\PYG{p}{(}\PYG{n}{noisy\PYGZus{}distances}\PYG{p}{,} \PYG{n}{anchor\PYGZus{}location}\PYG{p}{,} \PYG{n}{sigma2}\PYG{p}{,} \PYG{n}{target\PYGZus{}location}\PYG{p}{)}
+    \PYG{n}{CRLB\PYGZus{}value} \PYG{o}{=} \PYG{n}{CRLB}\PYG{p}{(}\PYG{n}{target\PYGZus{}location}\PYG{p}{,}\PYG{n}{anchor\PYGZus{}location}\PYG{p}{,}\PYG{n}{sigma2}\PYG{p}{)}
+    \PYG{n}{filename} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}./results/MSE.png\PYGZsq{}}
+
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{()}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{sigma2}\PYG{p}{,} \PYG{n}{MSE\PYGZus{}MLE\PYGZus{}value}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}red\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}MLE\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{sigma2}\PYG{p}{,} \PYG{n}{MSE\PYGZus{}BLUE\PYGZus{}value}\PYG{p}{,} \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}blue\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}BLUE\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{sigma2}\PYG{p}{,} \PYG{n}{CRLB\PYGZus{}value}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}g\PYGZhy{}\PYGZhy{}\PYGZsq{}}\PYG{p}{,} \PYG{n}{label} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}CRLB\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{title}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Comparison of CRLB and MSE of MLE and BLUE estimators\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Noise Variance\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Mean Squared Errors (MSE)\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{()}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{savefig}\PYG{p}{(}\PYG{n}{filename}\PYG{p}{,} \PYG{n}{dpi}\PYG{o}{=}\PYG{l+m+mi}{300}\PYG{p}{)}
+
+
+\PYG{k}{if} \PYG{n+nv+vm}{\PYGZus{}\PYGZus{}name\PYGZus{}\PYGZus{}} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}\PYGZus{}\PYGZus{}main\PYGZus{}\PYGZus{}\PYGZsq{}}\PYG{p}{:}
+    \PYG{n}{main}\PYG{p}{()}
+\end{Verbatim}
